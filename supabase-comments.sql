@@ -24,6 +24,8 @@ create index if not exists ruangnovel_comments_parent_idx
 
 alter table public.ruangnovel_comments enable row level security;
 
+grant select, insert on table public.ruangnovel_comments to anon, authenticated;
+
 drop policy if exists "Anyone can read RuangNovel comments" on public.ruangnovel_comments;
 create policy "Anyone can read RuangNovel comments"
   on public.ruangnovel_comments for select
